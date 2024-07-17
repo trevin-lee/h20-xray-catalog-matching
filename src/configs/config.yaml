@@ -1,0 +1,19 @@
+
+# Relative Paths to the src folder
+eROSITA_file_path: /Users/admin/Documents/GitHub/H20-eROSITA-Matched-Catalog-Analysis/src/data_raw/eRASS1_Main.v1.1.fits
+H20_file_path: /Users/admin/Documents/GitHub/H20-eROSITA-Matched-Catalog-Analysis/src/data_raw/DAWN_EDFF_DR1.fits
+CDFS_file_path: /Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_raw/LuoCDFS.fits
+
+
+# Processed data path
+save_data_path: /Users/admin/Documents/GitHub/H20-xROSITA-Catalog-Matching/src/datasets_preprocessed
+input_catalogs_path: /Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs
+
+# Search Parameters (Arcsec)
+adj_flux_rad: 2.0 
+match_search_rad: 1.0
+background_inner_rad: 5.0
+background_outer_rad: 30.0
+
+# Matching Parameters
+interpolation_bins: 21
