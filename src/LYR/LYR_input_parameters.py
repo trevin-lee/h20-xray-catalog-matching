@@ -1,6 +1,7 @@
-from config_loader import ConfigLoader
+import sys
+sys.path.append("/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src")
 
-
+from util_classes.config_loader import ConfigLoader
 config = ConfigLoader("/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/configs/config.yaml")
 
 
@@ -11,6 +12,7 @@ config = ConfigLoader("/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/sr
 ############################
 
 import numpy as np
+import pandas as pd
 print('\n')
 print('Reading catalogues and parameters..')
 
@@ -30,7 +32,7 @@ r_max_nm = config.BACKGROUND_OUTER_RAD
 distrib_bins = 21
 
 # results:
-path_LR = '../data_lyr'
+path_LR = './src/data_lyr/'
 path_output = path_LR + 'output/'
 path_images = path_LR + 'images/'
 
@@ -72,9 +74,9 @@ filename_outinfo = 'LR_outinfo_' + add_str + '.txt'
 
 ######################################################################################################## ONIR - X:
 # Input catalogue:
-file_input = config.H20_PATH
+file_input = "/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs/edff_LYR.csv"
 
-data_input = np.genfromtxt(file_input, delimiter=',')
+data_input = pd.read_csv(file_input).to_numpy()
 ID_input = np.array(data_input[:,0])
 ra_input = np.array(data_input[:,1])
 dec_input = np.array(data_input[:,2])
@@ -82,10 +84,10 @@ mag_input = np.array(data_input[:,3])
 
 
 # Output catalogue:
-file_output = config.EROSITA_PATH
+file_output = "/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs/cdfs_LYR.csv"
 
 
-data_output = np.genfromtxt(file_output, delimiter=',')
+data_output = pd.read_csv(file_output).to_numpy()
 ID_output = np.array(data_output[:,0])
 ra_output = np.array(data_output[:,1])
 dec_output = np.array(data_output[:,2])
@@ -96,8 +98,8 @@ dec_err_output = np.array(data_output[:,4]) / 3600
 #---------------------------------------------------------------------- for sigma selection ------
 
 # Sigma input (ONIR):
-file1 = "/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs/edff_LYR.txt"
-data1 = np.genfromtxt(file1, delimiter=',')
+file1 = "/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs/edff_LYR.csv"
+data1 = pd.read_csv(file1).to_numpy()
 ID1_input_s = np.array(data1[:,0])
 ra1_input_s = np.array(data1[:,1])
 dec1_input_s = np.array(data1[:,2])

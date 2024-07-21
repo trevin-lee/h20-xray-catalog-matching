@@ -1,7 +1,7 @@
 
-# Relative Paths to the src folder
-eROSITA_file_path: /Users/admin/Documents/GitHub/H20-eROSITA-Matched-Catalog-Analysis/src/data_raw/eRASS1_Main.v1.1.fits
-H20_file_path: /Users/admin/Documents/GitHub/H20-eROSITA-Matched-Catalog-Analysis/src/data_raw/DAWN_EDFF_DR1.fits
+# Absolute Paths to fits files
+eROSITA_file_path: /Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_raw/eRASS1_Main.v1.1.fits
+H20_file_path: /Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_raw/DAWN_EDFF_DR1.fits
 CDFS_file_path: /Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_raw/LuoCDFS.fits
 
 
