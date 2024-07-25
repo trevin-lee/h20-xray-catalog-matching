@@ -1,5 +1,7 @@
-# ignore fits files
+# ignore data files
 *.fits
+*.csv
+*.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
