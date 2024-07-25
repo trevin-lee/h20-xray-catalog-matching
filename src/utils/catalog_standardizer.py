@@ -1,31 +1,27 @@
-import uuid
 import pandas as pd
 import numpy as np
 
-from util_classes.exceptions import DataFrameLengthMismatchError
+from exceptions import DataFrameLengthMismatchError
 
 
 class CatalogStandardizer:
-
 
     """
     Takes several arrays of equal length for the right ascension, declination,
     flux, flux error and positional error, and returns a standardized DataFrame.
     """
-    
 
-    def __init__(self, df_name, df_ra, df_dec, df_pos_err, df_flux):
-        self.df_name = df_name
+    def __init__(self, df_ra, df_dec, df_ra_err, df_dec_err, df_flux):
         self.df_ra = df_ra
         self.df_dec = df_dec
-        self.df_pos_err = df_pos_err
+        self.df_ra_err = df_ra_err
+        self.df_dec_err = df_dec_err
         self.df_flux = df_flux
-
         self.__validate_lengths()
 
 
     def __validate_lengths(self):
-        dataframes = [self.df_name, self.df_ra, self.df_dec, self.df_pos_err, self.df_flux]
+        dataframes = [ self.df_ra, self.df_dec, self.df_ra_err, self.df_dec_err, self.df_flux]
         length = len(dataframes[0])
         for df in dataframes:
             if len(df) != length:
@@ -34,18 +30,18 @@ class CatalogStandardizer:
 
     def standardize(self):
         length = len(self.df_ra)
-        uuids = [str(uuid.uuid4()) for _ in range(length)]
-        df_UUID = pd.Series(uuids)
+        index = [i for i in range(length)]
+        df_index = pd.Series(index)
         
         df = pd.concat([
-            df_UUID, 
-            self.df_name,
+            df_index, 
             self.df_ra, 
             self.df_dec, 
-            self.df_pos_err,
+            self.df_ra_err,
+            self.df_dec_err,
             self.df_flux,
         ], axis=1)
 
-        df.columns = ['uuid', 'name', 'ra', 'dec', 'pos_err', 'flux']
+        df.columns = ['index', 'ra', 'dec', 'ra_err', 'dec_err', 'flux']
         
         return df

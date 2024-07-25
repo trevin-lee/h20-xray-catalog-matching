@@ -1,11 +1,8 @@
 import sys
-sys.path.append("/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src")
+sys.path.append("/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/utils")
 
-from util_classes.config_loader import ConfigLoader
+from config_loader import ConfigLoader
 config = ConfigLoader("/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/configs/config.yaml")
-
-
-
 
 ############################
 ### LYR input parameters ###
@@ -54,9 +51,9 @@ delta_f2 = False
 delta_f2_fluxerr = 0 # 0: static error; 1: every single error for the input cat
 
 # python interactions
-iwp = True
+iwp = False
 cursors = False
-save_images = True
+save_images = False
 save_output = True
 
 # sdding string to all output images
@@ -74,20 +71,20 @@ filename_outinfo = 'LR_outinfo_' + add_str + '.txt'
 
 ######################################################################################################## ONIR - X:
 # Input catalogue:
-file_input = "/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs/edff_LYR.csv"
+file_input = "/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs/h20_LYR.csv"
 
-data_input = pd.read_csv(file_input).to_numpy()
+data_input = pd.read_csv(file_input).dropna().to_numpy()
 ID_input = np.array(data_input[:,0])
 ra_input = np.array(data_input[:,1])
 dec_input = np.array(data_input[:,2])
-mag_input = np.array(data_input[:,3])
+mag_input = np.array(data_input[:,5])
 
 
 # Output catalogue:
 file_output = "/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs/cdfs_LYR.csv"
 
 
-data_output = pd.read_csv(file_output).to_numpy()
+data_output = pd.read_csv(file_output).dropna().to_numpy()
 ID_output = np.array(data_output[:,0])
 ra_output = np.array(data_output[:,1])
 dec_output = np.array(data_output[:,2])
@@ -98,12 +95,11 @@ dec_err_output = np.array(data_output[:,4]) / 3600
 #---------------------------------------------------------------------- for sigma selection ------
 
 # Sigma input (ONIR):
-file1 = "/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs/edff_LYR.csv"
-data1 = pd.read_csv(file1).to_numpy()
+data1 = pd.read_csv(file_input).to_numpy()
 ID1_input_s = np.array(data1[:,0])
 ra1_input_s = np.array(data1[:,1])
 dec1_input_s = np.array(data1[:,2])
-mag1_input_s = np.array(data1[:,3])
+mag1_input_s = np.array(data1[:,5])
 
 if input_cat_type == 0:
 	sigma_input = 0 # 0.3 per cosmos
