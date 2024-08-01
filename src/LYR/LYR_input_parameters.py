@@ -10,6 +10,8 @@ config = ConfigLoader("/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/sr
 
 import numpy as np
 import pandas as pd
+
+
 print('\n')
 print('Reading catalogues and parameters..')
 
@@ -33,7 +35,7 @@ path_LR = './src/data_lyr/'
 path_output = path_LR + 'output/'
 path_images = path_LR + 'images/'
 
-# output catalogue errors moltiplicative factor
+# output catalogue errors multiplicative factor
 plus_erf = 1 # wavdetect errors factor, put 1 if there isn't
 
 # sigma finder ('all' == everwy single source; '1sigma' == 1 sigma mean errror):
@@ -50,39 +52,35 @@ nomag = -99. # mag/fluxes of undetected sources
 delta_f2 = False
 delta_f2_fluxerr = 0 # 0: static error; 1: every single error for the input cat
 
-# python interactions
 iwp = False
 cursors = False
-save_images = False
+save_images = True
 save_output = True
 
-# sdding string to all output images
-add_str = 'Final_XJ'
-# adding string to images titles
-add_title = add_str
-
-# out catalog and info
-filename_LR = 'LR_' + add_str + '.txt'
-filename_outinfo = 'LR_outinfo_' + add_str + '.txt'
+catalog = 1 # 0=cdfs 1=erosita
 
 
-############################################################### import data ########
-# coordinates in degrees
-
-######################################################################################################## ONIR - X:
-# Input catalogue:
-file_input = "/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs/h20_LYR.csv"
+if (catalog == 0):
+    add_str = 'edff_cdfs'
+    add_title = add_str
+    filename_LR = 'LR_' + add_str + '.txt'
+    filename_outinfo = 'LR_log_' + add_str + '.txt'
+    file_input = "/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs/edff_LYR.csv"
+    file_output = "/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs/cdfs_LYR.csv"
+elif (catalog == 1):    
+    add_str = 'edff_erosita'
+    add_title = add_str
+    filename_LR = 'LR_' + add_str + '.txt'
+    filename_outinfo = 'LR_log_' + add_str + '.txt'
+    file_input = "/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs/edff_LYR.csv"
+    file_output = "/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs/erosita_LYR.csv"
+	
 
 data_input = pd.read_csv(file_input).dropna().to_numpy()
 ID_input = np.array(data_input[:,0])
 ra_input = np.array(data_input[:,1])
 dec_input = np.array(data_input[:,2])
 mag_input = np.array(data_input[:,5])
-
-
-# Output catalogue:
-file_output = "/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs/cdfs_LYR.csv"
-
 
 data_output = pd.read_csv(file_output).dropna().to_numpy()
 ID_output = np.array(data_output[:,0])

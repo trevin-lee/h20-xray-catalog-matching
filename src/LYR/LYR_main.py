@@ -1,9 +1,10 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import os
+import time
+
 import LYR_functions as lyr
 from LYR_input_parameters import *
-import time
 
 toc = time.time()
 
@@ -38,5 +39,3 @@ if save_output == True:
 	outinfo.close()
 
 
-if iwp == True:
-	plt.show()

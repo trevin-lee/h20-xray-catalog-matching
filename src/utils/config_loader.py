@@ -22,8 +22,11 @@ class ConfigLoader:
         data = self.yaml_dict
         
         self.EROSITA_PATH = data['eROSITA_file_path']
-        self.H20_PATH = data['H20_file_path']
+        self.EDFF_PATH = data['EDFF_file_path']
         self.CDFS_PATH = data['CDFS_file_path']
+
+        self.EDFF_CDFS_PATH = data['edff_cdfs_path']
+        self.EDFF_EROSITA_PATH = data['edff_erosita_path']
 
         self.SAVE_DATA_PATH = data['save_data_path']
         self.INPUT_CATALOG_PATH = data['input_catalogs_path']

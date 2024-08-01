@@ -1,2 +1,0 @@
-
-Computational time: 41.0 seconds.
