@@ -14,10 +14,8 @@ class DataLoader:
     def __init__(self, verbose = 0):
         self.verbose = verbose
 
-
     def get_dataframe(self, path: str) -> pd.DataFrame:
         verbose = self.verbose
-
         with fits.open(Path(path).resolve()) as hdul:
             if verbose == 1: hdul.info()
             data = hdul[1].data
@@ -27,7 +25,6 @@ class DataLoader:
 
         return df
 
-
     def _decode_byte_strings(self, df: pd.DataFrame):
         for column in df.select_dtypes(include=['object']):
             df[column] = df[column].apply(
@@ -35,7 +32,6 @@ class DataLoader:
                 if isinstance(x, bytes) else x
             )
         return df
-
 
     def _convert_system_endian(self, df):
 
