@@ -29,6 +29,7 @@ class ConfigLoader:
         self.EDFF_SED_DATA = data['edff_sed_data']
 
         self.SAVE_DATA_PATH = data['save_data_path']
+        self.RAW_DATA_PATH = data['raw_data_path']
         self.INPUT_CATALOG_PATH = data['input_catalogs_path']
 
         self.ADJ_FLUX_RAD = data['adj_flux_rad']
