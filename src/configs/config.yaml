@@ -1,21 +1,21 @@
 
 # Absolute Paths to fits files
-eROSITA_file_path: /Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data/raw/eRASS1_Main.v1.1.fits
-EDFF_file_path: /Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data/raw/DAWN_EDFF_DR1.fits
-EDFN_file_path: /Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data/raw/DAWN_EDFN_DR1.fits
-CDFS_file_path: /Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data/raw/LuoCDFS.fits
+eROSITA_file_path: /Users/trevin/Documents/Git/h20_xray_catalog_matching/src/data/raw/eRASS1_Main.v1.1.fits
+EDFF_file_path: /Users/trevin/Documents/Git/h20_xray_catalog_matching/src/data/raw/DAWN_EDFF_DR1.fits
+EDFN_file_path: /Users/trevin/Documents/Git/h20_xray_catalog_matching/src/data/raw/DAWN_EDFN_DR1.fits
+CDFS_file_path: /Users/trevin/Documents/Git/h20_xray_catalog_matching/src/data/raw/cdfs_xray_cat.fit
 
 # Absolute Paths to Merged Catalogs
-edff_cdfs_path: /Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data/result/merged_catalog_edff_cdfs.csv
-edff_erosita_path: /Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data/result/merged_catalog_edff_erosita.csv
+edff_cdfs_path: /Users/trevin/Documents/Git/h20_xray_catalog_matching/src/data/result/merged_catalog_edff_cdfs.csv
+edff_erosita_path: /Users/trevin/Documents/Git/h20_xray_catalog_matching/src/data/result/merged_catalog_edff_erosita.csv
 
 # SED Data Path
-edff_sed_data: /Users/admin/Documents/GitHub/matched-catalog-analysis/src/data/result/matched_edff_sed_data.csv
+edff_sed_data: /Users/trevin/Documents/Git/h20_xray_catalog_matching/src/data/result/matched_edff_sed_data.csv
 
 # Processed data path
-save_data_path: /Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data/result
-raw_data_path: /Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data/raw
-input_catalogs_path: /Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/LYR/input_catalogs
+save_data_path: /Users/trevin/Documents/Git/h20_xray_catalog_matching/src/data/result/
+raw_data_path: /Users/trevin/Documents/Git/h20_xray_catalog_matching/src/data/raw/
+input_catalogs_path: /Users/trevin/Documents/Git/h20_xray_catalog_matching/src/LYR/input_catalogs/
 
 # Search Parameters (Arcsec)
 adj_flux_rad: 6.0 

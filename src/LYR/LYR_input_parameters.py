@@ -1,8 +1,8 @@
 import sys
-sys.path.append("/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/utils")
+sys.path.append("/Users/trevin/Documents/Git/h20_xray_catalog_matching/src/utils")
 
 from config_loader import ConfigLoader
-config = ConfigLoader("/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/configs/config.yaml")
+config = ConfigLoader("/Users/trevin/Documents/Git/h20_xray_catalog_matching/src/configs/config.yaml")
 
 ############################
 ### LYR input parameters ###
@@ -31,7 +31,7 @@ r_max_nm = config.BACKGROUND_OUTER_RAD
 distrib_bins = 21
 
 # results:
-path_LR = './src/data_lyr/'
+path_LR = './src/LYR/'
 path_output = path_LR + 'output/'
 path_images = path_LR + 'images/'
 
@@ -57,7 +57,7 @@ cursors = False
 save_images = True
 save_output = True
 
-catalog = 1 # 0=cdfs 1=erosita
+catalog = 0 # 0=cdfs 1=erosita
 
 
 if (catalog == 0):
@@ -65,15 +65,15 @@ if (catalog == 0):
     add_title = add_str
     filename_LR = 'LR_' + add_str + '.txt'
     filename_outinfo = 'LR_log_' + add_str + '.txt'
-    file_input = "/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs/edff_LYR.csv"
-    file_output = "/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs/cdfs_LYR.csv"
+    file_input = "/Users/trevin/Documents/Git/h20_xray_catalog_matching/src/LYR/input_catalogs/edff_LYR.csv"
+    file_output = "/Users/trevin/Documents/Git/h20_xray_catalog_matching/src/LYR/input_catalogs/cdfs_LYR.csv"
 elif (catalog == 1):    
     add_str = 'edff_erosita'
     add_title = add_str
     filename_LR = 'LR_' + add_str + '.txt'
     filename_outinfo = 'LR_log_' + add_str + '.txt'
-    file_input = "/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs/edff_LYR.csv"
-    file_output = "/Users/admin/Documents/GitHub/Matched-Catalog-Analysis/src/data_lyr/input_catalogs/erosita_LYR.csv"
+    file_input = "/Users/trevin/Documents/Git/h20_xray_catalog_matching/src/LYR/input_catalogs/edff_LYR.csv"
+    file_output = "/Users/trevin/Documents/Git/h20_xray_catalog_matching/src/LYR/input_catalogs/erosita_LYR.csv"
 	
 
 data_input = pd.read_csv(file_input).dropna().to_numpy()
